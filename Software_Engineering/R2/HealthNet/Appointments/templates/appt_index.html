@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments Index</title>
+    <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+</head>
+<body>
+        <!-- Navigation bar-->
+		<div class = "nav_bar">
+			<ul class = "nav_links">
+				<a href="{% url 'landing_page' %}">Homepage</a><br>
+				<a href="http://127.0.0.1:8000/accounts/logout/">Logout</a><br>
+			</ul>
+		</div>
+
+        <div class="container" style="padding-bottom: 25px;">
+            <div class="content">
+                <h1>HealthNet: Appointments Index</h1>
+                <a href="{% url 'create_appt' %}">Create Appointment</a>
+                <br>
+                <h4>Appointments List:</h4>
+                {% for appointment in appointments %}
+                        *****************************<br>
+                        <b>Date: {{appointment.date}}</b><br>
+                        <b>Time: {{appointment.time}}</b><br>
+                        Patient: {{appointment.patient}} </br>
+                        Doctor: {{appointment.doctor.user.get_full_name}}<br>
+                        Location: {{ appointment.hospital }}<br>
+
+                    <p>
+                    <a href="{% url 'update_appt' pk=appointment.pk %}">Update</a>&nbsp;
+                        {% if can_cancel %}
+                            <a href="{% url 'cancel_appt' pk=appointment.pk %}">Remove</a>
+                        {% endif %}
+                    </p>
+                {% endfor %}
+                *****************************<br>
+            </div>
+        </div>
+</body>
+</html>
