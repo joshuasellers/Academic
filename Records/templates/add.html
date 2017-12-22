@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+</head>
+<body>
+        <div class="nav_bar">
+            <ul class="nav_right">
+                <li><a href="http://127.0.0.1:8000/accounts/logout/">Logout</a></li>
+            </ul>
+            <ul class="nav_links">
+                <li><a href="http://127.0.0.1:8000/accounts/profile/">Homepage</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                    <h1>Add Prescription </h1>
+					<form method = "POST">{% csrf_token %}
+						{{form.as_p}}
+                        {% if form.errors %}
+                        {% endif %}
+                        <button type = "submit" class="save btn btn-default">Done</button>
+					</form>
+            </div>
+        </div>
+
+</body>
+</html>
