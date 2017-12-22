@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HealthNet - Homepage</title>
+		<meta name="description" content="Patients">
+		<meta name="author" content="The A Team">
+        <var>{{ backwards }}</var>
+        <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+
+		<!-- Navigation bar-->
+        <div class="nav_bar">
+            <ul class="nav_right">
+                <li><a href="http://127.0.0.1:8000/accounts/logout/">Logout</a></li>
+                <li><a href={{ type }}>Homepage</a></li>
+            </ul>
+        </div>
+
+		<div class="container">
+			<div class="content">
+				<center><h1> Welcome to HealthNet, {{person.user.get_full_name}}</h1></center>
+				<ul class="menu_option_container">
+                    <ul><h3>Patients:</h3></ul>
+                    {% for patient in patients %}
+                        <ul>******************************</ul>
+                        <ul><b>Patient: </b> {{ patient.user.get_full_name }}</ul>
+                        <ul><b>Hospital: </b>{{ patient.hospital }}</ul>
+                        <ul><b>Weight (lbs): </b>{{ patient.weight }}</ul>
+                        <ul><b>Height: </b>{{ patient.height_ft }}'{{ patient.height_inch }}"</ul>
+                        <ul><b>Sex: </b>{{ patient.sex }}</ul>
+                        <ul><b>Medical Information:</b> {{ patient.medical_info }}</ul>
+                        <ul><b>Doctor: </b>{{ patient.doctor }}</ul>
+                        <ul><b>Nurse: </b>{{ patient.nurse }}</ul>
+                    {% endfor %}
+                <ul>******************************</ul>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+</html>

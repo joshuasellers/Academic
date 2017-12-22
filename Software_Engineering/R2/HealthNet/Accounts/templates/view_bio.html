@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>HealthNet</title>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+
+        <div class="nav_bar">
+            <ul class="nav_right">
+                <li><a href="http://127.0.0.1:8000/accounts/logout/">Logout</a></li>
+            </ul>
+            <ul class="nav_left">
+                <li><a href="{% url 'landing_page' %}">Homepage</a></li>
+            </ul>
+        </div>
+
+		<div class="container">
+			<div class="content">
+                <h1>{{ patient.user.get_full_name }}'s Profile</h1>
+				<p>Height: {{patient.height_ft}}' {{ patient.height_inch }}" </p>
+				<p>Weight: {{patient.weight}} lbs</p>
+				<p>Birthday: {{patient.birthday}}</p>
+				<p>Sex: {{patient.sex}}</p>
+				<p>Phone Number: {{patient.phone_number}}</p>
+				<p>Address: {{patient.address}}</p>
+				<p>Insurance Number: {{patient.insurance}}</p>
+                <br>
+                <p>Emergency Contact: {{ patient.ice_name }}</p>
+                <p>Emergency Phone Number: {{ patient.ice_phone }}</p>
+                <br>
+                <p>Hospital: {{ patient.hospital }}</p>
+                <p>Doctor: {{ patient.doctor }}</p>
+                <p>Nurse: {{ patient.nurse }}</p>
+                <br>
+				<p><a href = "{% url 'edit_bio_info'%}"> Edit Information </a></p>
+                <p><a href = "{% url 'some_view'%}"> Export Information </a></p>
+
+			</div>
+		</div>
+  </body>
+    </html>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthNet Contact List</title>
+    <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+        <div class="nav_bar">
+            <ul class="nav_right">
+                <li><a href="http://127.0.0.1:8000/accounts/logout/">Logout</a></li>
+                <li><a href="{% url 'landing_page' %}">Homepage</a></li>
+            </ul>
+        </div>
+
+		<div class="container">
+			<div class="content">
+                <h1>HealthNet - Contact Information</h1>
+                <ul class="menu_option_container">
+                    <ul><h3>Patients:</h3></ul>
+                    {% for patient in patients %}
+                        <br>
+                        <ul> {{ patient.user.get_full_name }} &nbsp;-&nbsp; {{ patient.user.email }}</ul>
+                    {% endfor %}
+                    <br>
+                    <ul><h3>Doctors:</h3></ul>
+                    {% for doctor in doctors %}
+                        <br>
+                        <ul> {{ doctor.user.get_full_name }}&nbsp;-&nbsp; {{ doctor.user.email }}</ul>
+                    {% endfor %}
+                <br>
+                    <ul><h3>Nurses:</h3></ul>
+                    {% for nurse in nurses %}
+                        <br>
+                        <ul> {{ nurse.user.get_full_name }}&nbsp;-&nbsp; {{nurse.user.email }}</ul>
+                    {% endfor %}
+				</ul>
+			</div>
+		</div>
+</body>
+</html>

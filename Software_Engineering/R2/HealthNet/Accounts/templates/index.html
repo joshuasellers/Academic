@@ -1,0 +1,28 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HealthNet</title>
+		<meta name="description" content="HealthNet Login System">
+		<meta name="author" content="The A Team">
+        <link href="{% static 'accounts/stylin.css' %}" rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+        <div class="container">
+            <div class="content">
+                <h2 id="title">Health<div class="logo_2">Net</div></h2>
+                <ul class="menu_option_container">
+                    <a href="http://127.0.0.1:8000/accounts/login/">
+                        <li class="menu_option">Login</li>
+                    </a>
+                    <a href="http://127.0.0.1:8000/accounts/register/">
+                        <li class="menu_option">Register</li>
+                    </a>
+                </ul>
+                <div id="made_by">Made in 2016 for SWEN 261 @ RIT, by <div class="a-team">The A-Team.</div></div>
+            </div>
+        </div>
+	</body>
+</html>

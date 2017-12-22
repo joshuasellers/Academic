@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HealthNet - Patient Registration</title>
+		<meta name="description" content="HealthNet Patient Registration">
+		<meta name="author" content="The A Team">
+        <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="content">
+				<center><h1>Patient Registration</h1></center>
+				<form method = "POST">{% csrf_token %}
+					<h2>User Information</h2>
+					{{patient_form.as_p}}
+					<br/>
+					<h2>Personal Information </h2>
+					{{info_form.as_p}}
+					<br/>
+                    <a href="http://127.0.0.1:8000/accounts/login/">
+                        <button>Done</button>
+                    </a>
+			    </form>
+			</div>
+		</div>
+
+	</body>
+</html>

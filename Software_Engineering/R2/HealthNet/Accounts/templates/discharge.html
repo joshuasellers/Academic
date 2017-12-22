@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HealthNet - Discharge Patient</title>
+		<meta name="description" content="HealthNet Patient Emergency/Trnsfer Admission">
+		<meta name="author" content="The A Team">
+        <link href="{% static 'accounts/generic.css' %}" rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="content">
+                <center><h1>Patient Discharge</h1></center>
+                <ul><b>Patient:</b> {{ patient.user.get_full_name}}</ul>
+                {{ form.instance.field }}
+                <form method = "POST">{% csrf_token %}
+                    {{form.as_p}}
+                    <button type = "submit" class="save btn btn-default">Submit Change</button>
+                </form>
+                <a href={{ back }}>
+                    <button>Back</button>
+                </a>
+			</div>
+		</div>
+
+	</body>
+</html>
