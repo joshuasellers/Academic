@@ -3,7 +3,6 @@ from itertools import chain
 
 
 class Graph:
-
     def __init__(self, v_list, adjacency_list, width, height):
         """
         Initialize a graph
@@ -46,6 +45,7 @@ class Graph:
         else:
             return A, con
 
+
     def getW(self, cut):
         """
         Get the weight of the current cut
@@ -62,6 +62,7 @@ class Graph:
                         if e[0] == v:
                             w += e[1]
         return w
+
 
     def getCut(self,A):
         """
@@ -103,10 +104,6 @@ class Graph:
         new_a_list[c] = a
         self.adjacency_list = new_a_list
         self.v_list = new_v_list
-
-                
-
-
 
 
     def minimumCutPhase(self, a):
