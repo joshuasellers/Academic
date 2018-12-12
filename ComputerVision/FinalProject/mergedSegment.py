@@ -90,9 +90,20 @@ class Graph:
         new_v_list.append(c)
         for i in range(0,len(new_v_list)-1):
             new_a_list[new_v_list[i]] = self.adjacency_list[new_v_list[i]]
-        c_a_list = []
+        c_a_list = {}
         for v in c:
             for e in self.adjacency_list[v]:
+                if e[0] in c_a_list:
+                    c_a_list[e[0]] += e[1]
+                else:
+                    c_a_list[e[0]] = e[1]
+        a = []
+        for key in c_a_list:
+            a.append([key, c_a_list[key]])
+        new_a_list[c] = a
+        self.adjacency_list = new_a_list
+        self.v_list = new_v_list
+
                 
 
 
